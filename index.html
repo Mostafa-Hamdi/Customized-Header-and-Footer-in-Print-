@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      @media print {
+        /* ensures that elements won't break onto a new page when printing */
+        * {
+          page-break-before: avoid !important;
+        }
+        /* This will hide the print button in print only*/
+        button {
+          display: none !important;
+        }
+        /* used to collapse table borders into a single border. */
+        table {
+          border-collapse: collapse !important;
+        }
+        th,
+        td {
+          page-break-inside: avoid !important;
+          white-space: wrap !important;
+          text-wrap: wrap !important;
+        }
+        .table-box tfoot > tr > td {
+          height: 80px;
+        }
+        .table-box thead th {
+          height: 100px;
+        }
+        /* This for making header fixed in every page printed */
+        .header {
+          position: fixed;
+          display: flex !important;
+          flex-direction: row-reverse;
+          align-items: center;
+          justify-content: space-between;
+          top: 0;
+          left: 0;
+          right: 0;
+          text-align: center;
+          background-color: transparent !important;
+          padding: 5px 0;
+          border-bottom: 1px solid #000;
+          z-index: 1000;
+        }
+        .header img {
+          width: 150px;
+        }
+
+        .footer {
+          position: fixed;
+          display: flex !important;
+          align-items: center;
+          justify-content: space-between;
+          bottom: 0 !important;
+          left: 0;
+          right: 0;
+          text-align: center;
+          background-color: transparent !important;
+          page-break-after: always;
+          padding: 5px 0;
+          border-top: 1px solid #000;
+          z-index: 100000000 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header that display at the top of the page in print -->
+    <div class="header d-none">
+      <img
+        loading="lazy"
+        class
+        src="https://media-hosting.imagekit.io//2b31fb21ad5a4598/aa.png?Expires=1832698510&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=Qy7s7W7~wx8IZpP74~bcIaseb4~w6FX8wpP7i1ZamsBLmjfMFsgJ8pZ3uD~d~hChVswulO689Jw-rTSfojzGzzv1S9bPPymnfdhmaGnYgqnO3hWMP17nbUTMnAGsXGnMRhXTswqir-bK4eaEu8JSV5mzwkh8VzRZiRspN7tcHI-2xZTdHnZauXnMUd~xNb9vPuIO6TiWzO0oxKBx9dcamWmnWGDACHXzwlsQHSABrx~xp8lbc4E65lbklK5RShYMpGexMk3tqPssRrg6bMSmzmiah-xaVVn9Oj6QTg9SS0fFmEGofU0ZfvHqXUDPmtZoTgxXApf5mLOPdEOjO3VqOQ__"
+        alt
+      />
+      <div
+        class="header-info"
+        style="
+          font-family:
+            Times New Roman,
+            Times,
+            serif;
+        "
+      >
+        <h1>Mostafa Hamdi</h1>
+      </div>
+    </div>
+    <!-- Main Table that contain page content that will be printed between header and footer header and footer -->
+    <table
+      class="table-box"
+      style="table-layout: fixed; width: 100%; height: 100%"
+    >
+      <!-- this for making space that header of page printed take -->
+      <thead>
+        <tr>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <!-- td that include page content that will be printed between header and footer header and footer -->
+          <td>
+            <div class="card">
+              <div class="card-header text-center">
+                <h3 class="text-danger">
+                  Print Page Data with specific header and footer in print
+                </h3>
+                <button class="btn btn-primary m-auto" onclick="window.print()">
+                  Print Page
+                </button>
+              </div>
+              <div class="card-body table-border-style">
+                <div class="table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Larry</td>
+                        <td>the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <!-- this for making space that footer of page printed take -->
+      <tfoot>
+        <tr>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+    <!-- Footer that display at the bottom of the page in print -->
+    <div class="footer d-none">
+      <div class="footer-info">
+        <span>Cairo</span>
+      </div>
+      <div class="footer-info">
+        <span> Phone Number : 01207715484</span>
+      </div>
+      <div class="footer-info">
+        <span>Mostafa Hamdi</span>
+      </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
